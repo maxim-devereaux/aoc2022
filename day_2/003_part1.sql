@@ -20,3 +20,8 @@ SELECT SUM( ASCII( played ) - 87 +
 FROM   aoc_2
 /
 
+-- EVEN SHORTER VERSION
+-- Map difference in played moves to 0 (we played "one less"), 1 (same move), 2 then multiply by 3 for score
+SELECT SUM( ASCII( played ) - 87 + MOD( ASCII( played ) - ASCII( elf_played ) - 19, 3 ) * 3 ) AS score
+FROM   aoc_2
+/
