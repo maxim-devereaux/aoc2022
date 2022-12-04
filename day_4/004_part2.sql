@@ -9,3 +9,12 @@ OR    elf1_start BETWEEN elf2_start AND elf2_end
 -- Overlap (elf 1 before elf 2)
 OR    elf2_start BETWEEN elf1_start AND elf1_end
 /
+
+-- REMOVE UNNECESSARY CHECKS
+SELECT COUNT(*)
+FROM   aoc_4
+-- Overlap (elf 2 before elf 1 or contains elf 1)
+WHERE elf1_start BETWEEN elf2_start AND elf2_end
+-- Overlap (elf 1 before elf 2 or contains elf 2)
+OR    elf2_start BETWEEN elf1_start AND elf1_end
+/
